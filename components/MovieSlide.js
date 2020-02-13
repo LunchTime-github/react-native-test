@@ -4,7 +4,7 @@ import styled from "styled-components";
 import makePhotoUrl from "../utils/makePhotoUrl";
 import Layout from "../constants/Layout";
 import MoviePoster from "./MoviePoster";
-import { TINT_COLOR, GREY_COLOR } from "../constants/Colors";
+import { TINT_COLOR } from "../constants/Colors";
 import MovieRating from "./MovieRating";
 
 const Container = styled.View`
@@ -13,8 +13,8 @@ const Container = styled.View`
 `;
 
 const BgImage = styled.Image`
-  width: ${Layout.width};
-  height: ${Layout.height / 3};
+  width: 100%;
+  height: ${Layout.height / 3}px;
   opacity: 0.4;
   position: absolute;
 `;

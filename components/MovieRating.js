@@ -8,7 +8,7 @@ const Vote = styled.Text`
   font-size: ${props => props.inSlide ? "10px" : "8px"};
 `;
 
-const MovieRating = ({ votes, inSlide = false }) => <Vote>⭐{`${votes} / 10`}</Vote>;
+const MovieRating = ({ votes, inSlide = false }) => <Vote>⭐ {`${votes} / 10`}</Vote>;
 
 MovieRating.propTypes = {
   votes: PropTypes.number.isRequired,

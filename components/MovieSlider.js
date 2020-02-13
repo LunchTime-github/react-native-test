@@ -8,7 +8,7 @@ import MovieSlide from "./MovieSlide";
 const SWIPER_HEIGHT = Layout.height / 3;
 
 const View = styled.View`
-  height: ${SWIPER_HEIGHT};
+  height: ${SWIPER_HEIGHT}px;
 `;
 const Text = styled.Text``;
 

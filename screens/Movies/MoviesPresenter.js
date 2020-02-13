@@ -5,10 +5,11 @@ import Loader from "../../components/Loader";
 import styled from "styled-components";
 import MoiveSlider from "../../components/MovieSlider";
 import { BG_COLOR } from "../../constants/Colors";
+import Seciton from "../../components/Section";
+import MovieItem from "../../components/MovieItem";
 
 const Container = styled.ScrollView`
   background-color: ${BG_COLOR};
-  flex: 1;
 `;
 
 const MoviesPresenter = ({ loading, upcoming, popular, nowplaying }) =>
@@ -16,8 +17,40 @@ const MoviesPresenter = ({ loading, upcoming, popular, nowplaying }) =>
     <Loader />
   ) : (
     <Container>
-      <MoiveSlider movies={nowplaying} />
-      <Text>Movies</Text>
+      {nowplaying ? <MoiveSlider movies={nowplaying} /> : null}
+      {upcoming ? (
+        <Seciton title="Upcoming Movies">
+          {upcoming
+            .filter(movie => movie.poster_path !== null)
+            .map(movie => (
+              <MovieItem
+                key={movie.id}
+                id={movie.id}
+                posterPhoto={movie.poster_path}
+                title={movie.title}
+                voteAvg={movie.vote_average}
+                overview={movie.overview}
+              />
+            ))}
+        </Seciton>
+      ) : null}
+      {popular ? (
+        <Seciton title="Popular Movies" horizontal={false}>
+          {popular
+            .filter(movie => movie.poster_path !== null)
+            .map(movie => (
+              <MovieItem
+                key={movie.id}
+                id={movie.id}
+                posterPhoto={movie.poster_path}
+                title={movie.title}
+                voteAvg={movie.vote_average}
+                horizontal={true}
+                overview={movie.overview}
+              />
+            ))}
+        </Seciton>
+      ) : null}
     </Container>
   );
 
