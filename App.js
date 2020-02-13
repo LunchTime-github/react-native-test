@@ -4,6 +4,7 @@ import { StatusBar } from "react-native";
 import * as Font from "expo-font";
 import { Ionicons } from "@expo/vector-icons";
 import MainNavigation from "./navigation/MainNavigation";
+import { BG_COLOR } from "./constants/Colors";
 
 export default class App extends React.Component {
   state = {
@@ -25,7 +26,7 @@ export default class App extends React.Component {
     if (loaded) {
       return (
         <>
-          <StatusBar barStyle="light-content" />
+          <StatusBar translucent backgroundColor={BG_COLOR} barStyle="light-content"/>
           <MainNavigation />
         </>
       );
