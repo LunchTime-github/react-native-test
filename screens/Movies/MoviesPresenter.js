@@ -5,7 +5,7 @@ import Loader from "../../components/Loader";
 import styled from "styled-components";
 import MoiveSlider from "../../components/MovieSlider";
 import { BG_COLOR } from "../../constants/Colors";
-import Seciton from "../../components/Section";
+import Section from "../../components/Section";
 import MovieItem from "../../components/MovieItem";
 
 const Container = styled.ScrollView`
@@ -19,7 +19,7 @@ const MoviesPresenter = ({ loading, upcoming, popular, nowplaying }) =>
     <Container>
       {nowplaying ? <MoiveSlider movies={nowplaying} /> : null}
       {upcoming ? (
-        <Seciton title="Upcoming Movies">
+        <Section title="Upcoming Movies">
           {upcoming
             .filter(movie => movie.poster_path !== null)
             .map(movie => (
@@ -32,10 +32,10 @@ const MoviesPresenter = ({ loading, upcoming, popular, nowplaying }) =>
                 overview={movie.overview}
               />
             ))}
-        </Seciton>
+        </Section>
       ) : null}
       {popular ? (
-        <Seciton title="Popular Movies" horizontal={false}>
+        <Section title="Popular Movies" horizontal={false}>
           {popular
             .filter(movie => movie.poster_path !== null)
             .map(movie => (
@@ -49,7 +49,7 @@ const MoviesPresenter = ({ loading, upcoming, popular, nowplaying }) =>
                 overview={movie.overview}
               />
             ))}
-        </Seciton>
+        </Section>
       ) : null}
     </Container>
   );
