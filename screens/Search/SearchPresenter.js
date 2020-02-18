@@ -28,7 +28,6 @@ const Input = styled.TextInput`
 
 const SearchResults = styled.ScrollView`
   background-color: ${BG_COLOR};
-  flex: 1;
 `;
 
 const SearchPresenter = ({
@@ -49,7 +48,6 @@ const SearchPresenter = ({
           value={searchTerm}
           returnKeyType={"search"}
           onSubmitEditing={onSubmitEditing}
-          autoCorrect={false}
         />
       </InputContainer>
     </Container>

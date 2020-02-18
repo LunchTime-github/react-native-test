@@ -46,7 +46,6 @@ export default class SearchContainer extends React.Component {
 
   render() {
     const { loading, movieResults, tvResults, searchTerm } = this.state;
-    console.log(this.state);
     return (
       <SearchPresent
         loading={loading}

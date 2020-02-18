@@ -16,22 +16,6 @@ const TVPresent = ({ loading, popular, airingThisWeek, airingtoday }) =>
     <Loader />
   ) : (
     <Container>
-      {popular ? (
-        <Section title="Popular TV Show">
-          {popular
-            .filter(tv => tv.poster_path !== null)
-            .map(tv => (
-              <MovieItem
-                key={tv.id}
-                id={tv.id}
-                posterPhoto={tv.poster_path}
-                title={tv.name}
-                voteAvg={tv.vote_average}
-                overview={tv.overview}
-              />
-            ))}
-        </Section>
-      ) : null}
       {airingtoday ? (
         <Section title="Airing Today">
           {airingtoday
@@ -44,6 +28,7 @@ const TVPresent = ({ loading, popular, airingThisWeek, airingtoday }) =>
                 title={tv.name}
                 voteAvg={tv.vote_average}
                 overview={tv.overview}
+                isMovie={false}
               />
             ))}
         </Section>
@@ -60,6 +45,25 @@ const TVPresent = ({ loading, popular, airingThisWeek, airingtoday }) =>
                 title={tv.name}
                 voteAvg={tv.vote_average}
                 overview={tv.overview}
+                isMovie={false}
+              />
+            ))}
+        </Section>
+      ) : null}
+      {popular ? (
+        <Section title="Popular TV Show" horizontal={false}>
+          {popular
+            .filter(tv => tv.poster_path !== null)
+            .map(tv => (
+              <MovieItem
+                key={tv.id}
+                id={tv.id}
+                posterPhoto={tv.poster_path}
+                title={tv.name}
+                voteAvg={tv.vote_average}
+                overview={tv.overview}
+                horizontal={true}
+                isMovie={false}
               />
             ))}
         </Section>
